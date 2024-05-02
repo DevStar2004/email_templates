@@ -1,0 +1,10 @@
+<script props>
+  module.exports = {
+    disclaimerText: props.disclaimerText || "",
+    disclaimerClass: props.disclaimerClass || "text-sm text-gray-500 italic",
+  };
+</script>
+
+<tr>
+  <td colspan="2" class="{{disclaimerClass}}">{{disclaimerText}}</td>
+</tr>

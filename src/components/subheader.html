@@ -1,0 +1,24 @@
+<script props>
+  module.exports = {
+    subtitle: props.subtitle || "ET TOUT LE MONDE EN PROFITE !",
+    maxSaved: props.discount || "30",
+    discountType:props.discountType || "%",
+    titlePart:
+      props.titlePart ||
+      "sur chacune de vos commandes, c'est ça l'effet KohortPay !",
+    starting: props.starting || "Ensemble vous avez débloqué",
+    word: props.word || "débloqué",
+    subtitleClass:
+      props.subtitleClass || "mt-4 mb-0 text-xxs text-brand-250 font-semibold",
+    titleClass:
+      props.titleClass ||
+      "mb-4 mt-0 text-2xl sm:leading-8 text-black font-normal",
+    discountClass: props.discountClass || "font-semibold",
+  };
+</script>
+
+<p class="{{ subtitleClass }}">{{ subtitle }}</p>
+<h2 class="{{ titleClass }}">
+  {{starting}} <span class="{{ discountClass }}"> {{word}} -{{discount}}</span> 
+  {{titlePart}}
+</h2>

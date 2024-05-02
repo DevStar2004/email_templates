@@ -1,0 +1,20 @@
+<script props>
+  module.exports = {
+    imgSrc: props.imgSrc || "default-image-url",
+    itemName: props.itemName || "",
+    itemPrice: props.itemPrice || "0€",
+    imgClass: props.imgClass || "w-8 h-auto inline-block align-middle",
+    itemNameClass:
+      props.itemNameClass || "text-sm text-left text-slate-700 pr-10",
+    itemPriceClass: props.itemPriceClass || "text-sm font-semibold text-right",
+    rowClass: props.rowClass || "my-6",
+  };
+</script>
+
+<tr class="{{ rowClass }}">
+  <td class="align-middle">
+    <img src="{{ imgSrc }}" alt="Item Image" class="{{ imgClass }}" />
+  </td>
+  <td class="{{ itemNameClass }}">{{ itemName }}</td>
+  <td class="{{ itemPriceClass }}">{{ itemPrice }}</td>
+</tr>

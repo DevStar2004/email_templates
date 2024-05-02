@@ -1,0 +1,28 @@
+<script props>
+  module.exports = {
+    title: props.title || "Invite toi aussi tes amis à rejoindre le groupe !",
+    code: props.code || "@{{paymentGroup.shareId}}",
+    message:
+      props.message ||
+      "Partage ce code à tes amis afin de leur permettre de rejoindre le groupe et débloquer des réductions.",
+    titleClass: props.titleClass || "text-xl sm:leading-8 font-semibold",
+    pClass: props.pClass || "my-6 leading-8",
+    codeClass:
+      props.codeClass ||
+      "bg-brand-500 px-6 py-2 rounded font-semibold text-2xl",
+    messageClass: props.messageClass || "px-10 text-xs",
+  };
+</script>
+
+<div>
+  <h2 class="{{ titleClass }}">{{ title }}</h2>
+  <p class="{{ pClass }}">
+    <span class="{{ codeClass }}">{{ code }}</span>
+  </p>
+
+  <x-button
+    href="@{{paymentGroup.shareUrl}}"
+    text="@{{staticData.callToAction.accessGroupTracking}}"
+  />
+  <p class="{{ messageClass }}">{{ message }}</p>
+</div>

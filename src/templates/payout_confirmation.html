@@ -1,0 +1,75 @@
+---
+title: "Payout Confirmation"
+slug: "payout-confirmation"
+tags: payout, confirmation
+languages: [html]
+---
+
+<x-main>
+  <div class="font-poppins">
+    <table align="center" class="w-[600px] max-w-full mx-auto">
+      <tr>
+        <td class="my-6 sm:my-4 text-center">
+          <x-weblink />
+        </td>
+      </tr>
+
+      <tr>
+        <x-header>
+          <fill:pretitle>@{{staticData.header.invoiceIssued}}</fill:pretitle>
+          <fill:title>@{{staticData.header.yourInvoiceIsAvailable}}</fill:title>
+          <fill:description>
+            @{{staticData.header.findYourInvoicePrefix}}
+            <span class="font-bold">@{{payout.number}}</span
+            >@{{staticData.header.findYourInvoiceSuffix}}
+          </fill:description>
+        </x-header>
+      </tr>
+      <tr>
+        <td class="px-10 py-6 sm:px-6 text-sm text-slate-700 bg-white">
+          <p>
+            @{{ staticData.greeting.helloPrefix }} @{{ receipent.firstName }}
+            @{{staticData.greeting.helloSuffix }}<br /><br />
+            @{{ staticData.mainContent.weIssuedPaymentPrefix }}
+            <span class="font-semibold">@{{ payout.amount }}</span>
+            @{{ staticData.mainContent.weIssuedPaymentSuffix }}
+          </p>
+          <p>
+            <span class="font-semibold"
+              >@{{ staticData.mainContent.findAttachedInvoice }}
+              @{{payout.number}}</span
+            >
+            @{{ staticData.mainContent.findAttachedInvoiceSuffix }}
+          </p>
+
+          <p>
+            <span class="font-semibold">
+              @{{ staticData.mainContent.importantNoteBold }}
+            </span>
+            @{{ staticData.mainContent.thisOne }}
+            <span class="font-semibold">
+              @{{ staticData.mainContent.alreadyPaid }}
+            </span>
+            @{{ staticData.mainContent.importantNote }}
+          </p>
+
+          <h2 class="mb-4 mt-8 text-2xl sm:leading-8 text-black font-semibold">
+            @{{staticData.invoiceDetails.header}}
+          </h2>
+          <table class="w-full">
+            <x-tablerow
+              label="@{{staticData.invoiceDetails.totalAmountLabel}}"
+              value="@{{payout.amount}}"
+            />
+            <x-tablerow
+              label="@{{staticData.invoiceDetails.dateLabel}}"
+              value="@{{payout.createdAt}}"
+            />
+          </table>
+        </td>
+      </tr>
+
+      <x-footer />
+    </table>
+  </div>
+</x-main>

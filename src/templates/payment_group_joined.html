@@ -1,0 +1,89 @@
+---
+title: "Ton groupe Kohort est lancé"
+preheader: "Invite un maximum d'amis, débloque les paliers de réduction."
+---
+
+<!--
+  Template Variables:
+  ===================
+  1. {{paymentGroup.shareId}}:
+     Description: This variable holds the unique share ID for the payment group.
+     Type: String
+     Example: "KHTPAY-92D9AD89"
+
+  2. {{paymentGroup.shareUrl}}:
+     Description: This variable holds the unique URL for the payment group which can be shared.
+     Type: URL String
+     Example: "https://my.kohortpay.com/pg/KHTPAY-92D9AD89"
+-->
+
+<x-main>
+  <div class="font-poppins">
+    <table align="center">
+      <tr>
+        <td class="w-[600px] max-w-full">
+          <div class="my-6 sm:my-4 text-center">
+            <x-weblink />
+          </div>
+
+          <table class="w-full">
+            <x-header>
+              <fill:pretitle>{{staticData.header.pretitle}}</fill:pretitle>
+              <fill:title>{{staticData.header.title}} </fill:title>
+              <fill:description>
+                {{staticData.header.description}}
+                <span class="font-bold">
+                  -{{discount}}{{staticData.header.descriptionBold}}
+                </span>
+              </fill:description>
+            </x-header>
+            <tr>
+              <td
+                class="px-10 py-6 sm:px-6 text-sm bg-brand-900 text-white text-center"
+              >
+                <x-code
+                  title="{{staticData.sharingSection.title}}"
+                  code="{{paymentGroup.shareId}}"
+                  message="{{staticData.sharingSection.codeInstruction}} {{organization.name}} {{staticData.sharingSection.codeInstructionEnd}}"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td class="px-10 py-6 sm:px-6 text-sm text-[#170D2C] bg-white">
+                <h2
+                  class="mb-4 mt-8 text-2xl sm:leading-8 font-normal text-center"
+                >
+                  {{staticData.howTo.header}}
+                  <span class="font-semibold"
+                    >{{staticData.howTo.headerBold}}</span
+                  >{{staticData.howTo.accessGroup}}
+                </h2>
+                <table class="w-full">
+                  <tr>
+                    <x-info-card
+                      imgSrc="https://i.ibb.co/KxdyXMm/Crea1.png"
+                      title="{{staticData.infoCards.shareCode.title}}"
+                      description="{{staticData.infoCards.shareCode.description}}"
+                    />
+                    <x-info-card
+                      imgSrc="https://i.ibb.co/hRpX62B/Crea2.png"
+                      title="{{staticData.infoCards.accessGroup.title}}"
+                      description="{{staticData.infoCards.accessGroup.description}}"
+                    />
+                    <x-info-card
+                      imgSrc="https://i.ibb.co/9nqbz8m/Crea3.png"
+                      title="{{staticData.infoCards.enjoyDiscounts.title}}"
+                      description="{{staticData.infoCards.enjoyDiscounts.description}}"
+                    />
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <x-footer />
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+</x-main>

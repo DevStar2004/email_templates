@@ -1,0 +1,24 @@
+<script props>
+  module.exports = {
+    href: props.href || "@{{paymentGroup.shareUrl}}",
+    text: props.text || "🔥 Partager mon code maintenant 🔥",
+    target: props.target || "_blank",
+    class:
+      props.class ||
+      "inline-block py-4 px-10 text-sm leading-none [text-decoration:none] text-brand-100 font-semibold rounded-full bg-white border border-solid border-brand-100",
+  };
+</script>
+
+<p class="text-center">
+  <a href="{{ href }}" target="{{ target }}" class="{{ class }}">
+    <outlook>
+      <i class="tracking-6 mso-font-width-[-100%] mso-text-raise-[26pt]"
+        >&nbsp;</i
+      >
+    </outlook>
+    <span class="mso-text-raise-[13pt]">{{ text }}</span>
+    <outlook>
+      <i class="tracking-6 mso-font-width-[-100%]">&nbsp;</i>
+    </outlook>
+  </a>
+</p>

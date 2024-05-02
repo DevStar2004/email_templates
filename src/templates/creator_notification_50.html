@@ -1,0 +1,126 @@
+---
+title: "Alerte nouveau palier débloque!"
+preheader: "Bonne nouvelle ! Un nouveau palier a été débloqué, et tout le monde paie moins 🎉"
+---
+
+<!--
+  Template Variables:
+  ===================
+  1. @{{newMemberName}}:
+     Description: This variable holds the name of the new member who has joined the payment group.
+     Type: String
+     Example: "John Doe"
+
+  2. @{{creatorName}}:
+     Description: This variable holds the name of the creator of the payment group.
+     Type: String
+     Example: "Jane Doe"
+
+  3. @{{totalMembers}}:
+     Description: This variable holds the total number of members in the payment group after the new member has joined.
+     Type: Integer
+     Example: 5
+
+  4. @{{newPrice}}:
+     Description: This variable holds the new reduced price that each member has to pay after the new member has joined.
+     Type: String
+     Example: "€25.00"
+
+  5. @{{paymentGroup.shareUrl}}:
+     Description: This variable holds the unique URL for the payment group which can be shared.
+     Type: URL String
+     Example: "https://my.kohortpay.com/pg/KHTPAY-92D9AD89"
+-->
+
+<x-main>
+  <div class="font-poppins">
+    <table align="center" class="w-[600px] max-w-full mx-auto">
+      <tr>
+        <td class="my-6 sm:my-4 text-center">
+          <x-weblink />
+        </td>
+      </tr>
+
+      <tr>
+        <x-header>
+          <fill:pretitle>{{staticData_Notification_50.header.priceDropAlert}}</fill:pretitle>
+          <fill:title>@{{staticData.header.moreMembersLessPay}}</fill:title>
+          <fill:description>
+            @{{staticData.header.welcomeMessageStart}}@{{staticData.header.welcomeMessageEnd}}
+            <span class="font-bold">@{{organization.name}}</span
+            >@{{staticData.header.organizationNameBold}}
+          </fill:description>
+        </x-header>
+      </tr>
+      <tr>
+        <td class="px-10 py-6 sm:px-6 text-sm text-slate-700 bg-white">
+          <p>
+            @{{staticData.mainContent.greeting}} @{{{{creatorName}}}},<br /><br />
+            @{{staticData.mainContent.remainingTimeToInvite}}
+            <span>@{{remainingTime}}</span>
+            @{{staticData.mainContent.invitePartOne}}
+            <span class="font-semibold">@{{organization.name}}</span>
+            @{{staticData.mainContent.unlockLevel}}
+          </p>
+          <p>
+            @{{staticData.mainContent.offerPartOne}}
+            <span class="text-brand-600 font-bold">@{{discount}}</span>
+            @{{staticData.mainContent.offerPartTwo}}
+            <span class="font-bold">@{{creatorDiscountAmount}}</span>
+            @{{staticData.mainContent.offerPartThree}}
+            <span class="font-bold"
+              >@{{staticData.mainContent.friendsAppreciation}}</span
+            >
+            @{{staticData.mainContent.closingWords}}
+          </p>
+        </td>
+      </tr>
+
+      <tr>
+        <td
+          class="px-10 py-6 sm:px-6 text-sm bg-brand-900 text-white text-center"
+        >
+          <x-code
+            title="@{{staticData.sharingSection.title}}"
+            code="@{{paymentGroup.shareId}}"
+            message="@{{staticData.sharingSection.message}} @{{organization.name}} @{{staticData.sharingSection.messageEnd}}"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td class="px-10 py-6 sm:px-6 text-sm text-[#170D2C] bg-white">
+          <h2 class="mb-4 mt-8 text-2xl sm:leading-8 font-normal text-center">
+            @{{staticData.howTo.header}}
+            <span class="font-semibold">@{{staticData.howTo.headerBold}}</span
+            >@{{staticData.howTo.accessGroup}}
+          </h2>
+          <table class="w-full">
+            <tr>
+              <x-info-card
+                      imgSrc="https://i.ibb.co/KxdyXMm/Crea1.png"
+                      title="@{{staticData.infoCards.shareCode.title}}"
+                      description="@{{staticData.infoCards.shareCode.description}}"
+                    />
+                    <x-info-card
+                      imgSrc="https://i.ibb.co/hRpX62B/Crea2.png"
+                      title="@{{staticData.infoCards.accessGroup.title}}"
+                      description="@{{staticData.infoCards.accessGroup.description}}"
+                    />
+                    <x-info-card
+                      imgSrc="https://i.ibb.co/9nqbz8m/Crea3.png"
+                      title="@{{staticData.infoCards.enjoyDiscounts.title}}"
+                      description="@{{staticData.infoCards.enjoyDiscounts.description}}"
+                    />
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <x-footer />
+        </td>
+      </tr>
+    </table>
+  </div>
+</x-main>

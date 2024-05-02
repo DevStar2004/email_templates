@@ -1,0 +1,23 @@
+<script props>
+  module.exports = {
+    totalSaved: props.totalSaved || "0€",
+    totalSavedLabel:props.totalSavedLabel || "Total économisé:"
+  };
+</script>
+
+<td class="w-full bg-white">
+  <div
+    class="flex flex-row sm:flex-col rounded-md overflow-hidden border border-gray-300 sm:h-24 h-12 mx-auto mt-4 w-[50%]"
+  >
+    <div
+      class="sm:w-full w-3/5 sm:h-8 bg-rose-100 text-rose-500 text-base font-semibold font-['Poppins'] flex items-center justify-center"
+    >
+    {{ totalSavedLabel }}
+    </div>
+    <div
+      class="sm:w-full w-2/5 bg-brand-100 bg-gradient-r-brand-200 sm:h-8 text-center text-base font-semibold font-poppins flex items-center justify-center"
+    >
+      {{ totalSaved }}
+    </div>
+  </div>
+</td>

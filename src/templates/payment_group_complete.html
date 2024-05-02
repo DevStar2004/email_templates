@@ -1,0 +1,100 @@
+---
+title: "Le groupe est terminé"
+preheader: "Tous ensemble vous avez réussi à économiser."
+---
+
+<!--
+  Template Variables:
+  ===================
+  1. {{participantsLength}}:
+     Description: This variable holds the number of participants in the group.
+     Type: Integer
+     Example: 5
+
+  2. {{discount}}:
+     Description: This variable holds the total percentage saved due to discounts.
+     Type: String
+     Example: "30%"
+
+  3. {{discountAmount}}:
+     Description: This variable holds the total amount saved due to discounts.
+     Type: String
+     Example: "15€"
+
+  4. {{paymentGroup.shareUrl}}:
+     Description: This variable holds the unique URL for the payment group which can be shared.
+     Type: URL String
+     Example: "https://my.kohortpay.com/pg/KHTPAY-92D9AD89"
+-->
+
+<x-main>
+  <div class="font-poppins">
+    <table align="center">
+      <tr>
+        <td class="w-[600px] max-w-full">
+          <div class="my-6 sm:my-4 text-center">
+            <x-weblink />
+          </div>
+
+          <table class="w-full">
+            <x-header>
+              <fill:pretitle>{{staticData.header.whewItsHot}}</fill:pretitle>
+              <fill:title>{{staticData.header.basketPriceMelted}}</fill:title>
+              <fill:description>
+                {{staticData.header.congratsKohortSuccess}}
+                <span class="font-bold">
+                  {{staticData.header.togetherSucceeded}}
+                  -{{discount}}.
+                </span>
+                {{staticData.header.collectivePlayWorks}}
+              </fill:description>
+            </x-header>
+            <tr>
+              <td class="px-10 py-6 sm:px-6 text-sm text-slate-700 bg-white">
+                <x-subheader
+                  discount="{{discount}}"
+                  word="{{staticData.subheader.word}}"
+                  starting="{{staticData.subheader.starting}}"
+                  subtitle="{{staticData.subheader.subtitle}}"
+                  titlePart="{{staticData.subheader.title}}"
+                />
+
+                <h3
+                  class="mb-4 mt-8 text-xl sm:leading-8 text-black font-semibold"
+                >
+                  {{staticData.groupDetails.header}}
+                </h3>
+
+                <table class="w-full">
+                  <x-tablerow
+                    label="{{staticData.groupDetails.participantNumberLabel}}"
+                    value="{{participantsLength}}"
+                  />
+                  <x-tablerow
+                    label="{{staticData.groupDetails.levelReachedLabel}}"
+                    value="{{discount}}"
+                  />
+                  <x-tablerow
+                    label="{{staticData.groupDetails.totalDiscountLabel}}"
+                    value="{{discountAmount}}"
+                  />
+                </table>
+                <x-button
+                  href="{{paymentGroup.shareUrl}}"
+                  text="{{staticData.actionButton.accessGroupTracking}}"
+                />
+              </td>
+            </tr>
+            <tr>
+              <x-promo
+                title="{{staticData.promoSection.enjoyDiscounts}}"
+                imageSrc="https://emails.kohortpay.com/images/brands.png"
+              />
+            </tr>
+            <x-footer />
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+</x-main>

@@ -1,0 +1,13 @@
+<script props>
+  module.exports = {
+    label: props.label || "",
+    value: props.value || "",
+    labelClass: props.labelClass || "w-1/2 py-1 ",
+    valueClass: props.valueClass || "w-1/2 py-1 font-semibold text-right",
+  };
+</script>
+
+<tr>
+  <td class="{{ labelClass }}">{{ label }}</td>
+  <td class="{{ valueClass }}">{{ value }}</td>
+</tr>

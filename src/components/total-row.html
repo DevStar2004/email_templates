@@ -1,0 +1,21 @@
+<script props>
+  module.exports = {
+    totalAmount: props.totalAmount || "0€",
+    labelClass:
+      props.labelClass || "text-sm font-semibold text-left text-slate-700",
+    amountClass:
+      props.amountClass || "text-base font-bold text-right text-slate-700",
+    rowClass: props.rowClass || "mt-2",
+    divClass: props.divClass || "pt-2 pb-8 pr-0",
+    labelTitle: props.labelTitle || "Cûot total",
+  };
+</script>
+
+<tr class="{{ rowClass }} text">
+  <td colspan="2" class="{{ labelClass }}">
+    <div class="{{ divClass }} text-">{{labelTitle}}</div>
+  </td>
+  <td>
+    <div class="{{ divClass }} {{ amountClass }}">{{ totalAmount }}</div>
+  </td>
+</tr>

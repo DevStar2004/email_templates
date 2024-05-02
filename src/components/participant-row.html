@@ -1,0 +1,50 @@
+<script props>
+  module.exports = {
+    initials: props.initials || "AB",
+    name: props.name || "Default Name",
+    date: props.date || "Default Date",
+    imgSrc: props.imgSrc || "default-image-url",
+    itemCount: props.itemCount || "+0",
+    originalPrice: props.originalPrice || "0€",
+    discountedPrice: props.discountedPrice || "0€",
+  };
+</script>
+
+<tr>
+  <td class="py-2 pr-1 items-center">
+    <span
+      class="h-10 w-10 rounded-full flex items-center justify-center ring-1 font-medium ring-gray-700 bg-gray-200 text-gray-700 border-brand-700"
+    >
+      {{ initials }}
+    </span>
+  </td>
+  <td class="py-2 pr-1 items-center text-slate-700">
+    <div class="text-sm font-semibold text-left">{{ name }}</div>
+    <div class="text-2sm font-light text-left">{{ date }}</div>
+  </td>
+  <td class="py-4 pr-1 flex items-right relative">
+    <div
+      style="
+        position: absolute;
+        right: -2px;
+        top: 25%;
+        height: 50%;
+        width: 1px;
+        background-color: #979797;
+      "
+    ></div>
+    <img src="{{ imgSrc }}" alt="Item" class="w-8 h-8 px-1" />
+    <span
+      class="w-8 h-8 bg-gray-200 flex items-center justify-center text-gray-600 ml-1"
+      >{{ itemCount }}</span
+    >
+  </td>
+  <td class="py-2 pl-0.5 items-center">
+    <div class="text-sm font-normal text-right line-through text-slate-700">
+      {{ originalPrice }}
+    </div>
+    <div class="text-lg font-medium text-right text-brand-250">
+      {{ discountedPrice }}
+    </div>
+  </td>
+</tr>

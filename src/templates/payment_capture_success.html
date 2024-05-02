@@ -1,0 +1,198 @@
+---
+title: "Ton paiement est encaissé"
+preheader: "Le groupe de paiement a pris fin et nous venons de prélever sur ta carte le montant final de ta commande."
+---
+
+<!--
+  Template Variables:
+  ===================
+  1. @{{customer.firstName}}:
+     Description: This variable holds the first name of the customer.
+     Type: String
+     Example: "John"
+
+  2. @{{paymentIntent.amount}}:
+     Description: This variable holds the amount of the initial payment.
+     Type: String
+     Example: "54€"
+
+  3. @{{paymentIntent.id}}:
+     Description: This variable holds the unique ID of the payment.
+     Type: String
+     Example: "pi_3NjznOLELo0TF9yJ0r9WkIGZ"
+
+  4. @{{paymentIntent.updatedAt}}:
+     Description: This variable holds the date and time when the payment was last updated.
+     Type: String
+     Example: "2023-09-07T09:12:33.154Z"
+
+  5. @{{paymentIntent.amountCaptured}}:
+     Description: This variable holds the final amount captured after the payment group has ended.
+     Type: String
+     Example: "50€"
+
+  6. @{{paymentIntent.createdAt}}:
+     Description: This variable holds the date and time when the payment was created.
+     Type: String
+     Example: "2023-08-28T07:23:34.610Z"
+
+  7. @{{discountAmount}}:
+     Description: This variable holds the total amount saved due to discounts.
+     Type: String
+     Example: "4€"
+
+  8. @{{discount}}:
+     Description: This variable holds the total percentage saved due to discounts.
+     Type: String
+     Example: "7%"
+-->
+
+<x-main>
+  <div class="font-poppins">
+    <table align="center" class="w-[600px] max-w-full mx-auto">
+      <tr>
+        <td class="my-6 sm:my-4 text-center">
+          <x-weblink />
+        </td>
+      </tr>
+
+      <tr>
+        <x-header>
+          <fill:pretitle>@{{staticData.header.paymentCollected}}</fill:pretitle>
+          <fill:title>@{{staticData.header.thankYouForYourPurchase}}</fill:title>
+          <fill:description>
+            @{{staticData.header.paymentHasBeenCharged}}
+            <span class="font-bold">@{{organization.name}}</span
+            >@{{staticData.header.paymentHasBeenChargedEnd}}
+          </fill:description>
+        </x-header>
+      </tr>
+      <tr>
+        <td class="px-10 py-6 sm:px-6 text-sm text-slate-700 bg-white">
+          <p>
+            @{{staticData.mainContent.greetingCustomer}}@{{customer.firstName}},<br /><br />
+            @{{staticData.mainContent.chosenPaymentMethod}}<span
+              class="font-semibold"
+              >@{{organization.name}}</span
+            >@{{staticData.mainContent.chosenPaymentMethodEnd}}
+            @{{staticData.mainContent.finalAmountCharged}}
+          </p>
+
+          <p>
+            @{{staticData.mainContent.collectiveEffort}}
+            <span class="font-bold">@{{discount}}</span>
+            @{{staticData.mainContent.everyoneBenefit}}
+          </p>
+
+          <h2 class="mb-4 mt-8 text-2xl sm:leading-8 text-black font-semibold">
+            @{{staticData.withdrawalDetails.header}}
+          </h2>
+          <table class="w-full">
+            <x-tablerow
+              label="@{{staticData.withdrawalDetails.finalAmountLabel}}"
+              value="@{{paymentIntent.amountCaptured}}"
+            />
+            <x-tablerow
+              labelClass="w-1/2 text-brand-100 py-3 border-solid border-0 border-t border-gray-200"
+              valueClass="w-1/2 text-brand-100 py-3 border-solid border-0 border-t border-gray-200 font-semibold text-right"
+              label="@{{staticData.withdrawalDetails.savingsLabel}}"
+              value="@{{discountAmount}} (@{{discount}})"
+            />
+            <x-tablerow
+              label="@{{staticData.withdrawalDetails.dateLabel}}"
+              value="@{{paymentIntent.updatedAt}}"
+            />
+          </table>
+
+          <table class="w-full">
+            <x-tablerow
+              label="@{{staticData.initialPaymentDetails.amountLabel}}"
+              value="@{{paymentIntent.amount}}"
+            />
+            <x-tablerow
+              label="@{{staticData.initialPaymentDetails.numberLabel}}"
+              value="@{{paymentIntent.id}}"
+            />
+            <x-tablerow
+              label="@{{staticData.initialPaymentDetails.dateLabel}}"
+              value="@{{paymentIntent.createdAt}}"
+            />
+          </table>
+        </td>
+      </tr>
+      <!-- After your 'Détails du paiement' section -->
+      <tr>
+        <td class="px-10 sm:px-6 text-sm text-slate-700 bg-white">
+          <div class="flex flex-row justify-between">
+            <h2
+              class="mb-4 mt-8 text-2xl sm:leading-8 text-black font-semibold"
+            >
+              @{{staticData.paymentSummary.header}}
+            </h2>
+            <img
+              class="leading-8 mb-4 mt-8"
+              src="@{{organization.imageUrl}}"
+              height="30"
+            />
+          </div>
+          <!-- Item List Table -->
+          <table class="w-full text-left border-collapse items-center">
+            <tbody>
+              <!-- Single Item Row -->
+              <x-item-row
+                imgSrc="https://my.kohortpay.dev/_next/image?url=https%3A%2F%2Fshop.kohortpay.com%2Fcdn%2Fshop%2Ffiles%2FCasquette_KONGO.png%3Fv%3D1692971762%26width%3D300&w=64&q=75"
+                itemName="Casquette KONGO"
+                itemPrice="24€"
+              />
+              <!-- Add more rows as needed for additional items -->
+              <x-item-row
+                imgSrc="https://my.kohortpay.dev/_next/image?url=https%3A%2F%2Fshop.kohortpay.com%2Fcdn%2Fshop%2Ffiles%2FChaussettes_KIKI.png%3Fv%3D1692974993%26width%3D300&w=64&q=75"
+                itemName="Chaussettes KIKI"
+                itemPrice="30€"
+              />
+              <!-- Divider Row -->
+              <tr>
+                <td colspan="3">
+                  <div style="height: 2px; background-color: #cbd5e0"></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table
+            class="w-full border-solid border-0 border-t border-b border-gray-200"
+          >
+            <x-row label="Livraison Fedex" value="OFFERT" />
+            <x-row label="Remise '2024'" value="-20$" />
+            <x-row label="Remise '2024'" value="-20$" />
+            <!-- Spacing row -->
+            <x-highlighted-row
+              label="@{{staticData.paymentSummary.exclusiveDiscountLabel}}"
+              amount="@{{currentDiscountAmount}}"
+            ></x-highlighted-row>
+          </table>
+
+          <table class="w-full">
+            <x-total-row
+              labelTitle="@{{staticData.paymentSummary.amountLabel}}"
+              totalAmount="@{{paymentIntent.amount}}"
+            />
+          </table>
+        </td>
+      </tr>
+      <!-- Section above your footer and after the 'paymentSummary' section -->
+      <tr>
+        <td
+          class="px-10 sm:px-6 text-sm text-black bg-[#F8F1EC] text-center py-6"
+        >
+          <p class="text-black">@{{staticData.trackingSection.detailPrompt}}</p>
+          <x-button
+            href="@@{{paymentGroup.shareUrl}}"
+            text="@@{{staticData.callToAction.accessGroupTracking}}"
+          />
+        </td>
+      </tr>
+
+      <x-footer />
+    </table>
+  </div>
+</x-main>

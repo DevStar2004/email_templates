@@ -1,0 +1,90 @@
+---
+title: "Ton groupe Kohort est lancé"
+preheader: "Invite un maximum d'amis, débloque les paliers de réduction."
+---
+
+<!--
+  Template Variables:
+  ===================
+  1. @{{paymentGroup.shareId}}:
+     Description: This variable holds the unique share ID for the payment group.
+     Type: String
+     Example: "KHTPAY-92D9AD89"
+
+  2. @{{paymentGroup.shareUrl}}:
+     Description: This variable holds the unique URL for the payment group which can be shared.
+     Type: URL String
+     Example: "https://my.kohortpay.com/pg/KHTPAY-92D9AD89"
+-->
+
+<x-main>
+  <div class="font-poppins">
+    <table align="center">
+      <tr>
+        <td class="w-[600px] max-w-full">
+          <div class="my-6 sm:my-4 text-center">
+            <x-weblink />
+          </div>
+
+          <table class="w-full">
+            <x-header>
+              <fill:pretitle>@{{staticData.header.pretitle}}</fill:pretitle>
+              <fill:title>@{{staticData.header.title}} </fill:title>
+              <fill:description>
+                @{{staticData.header.description}}
+                <span class="font-bold"> @{{organization.name}} </span>
+                @{{staticData.header.descriptionBold}}
+              </fill:description>
+            </x-header>
+            <tr>
+              <td class="px-10 py-6 sm:px-6 text-sm text-slate-700 bg-white">
+                <tr>
+                  <td
+                    class="px-10 py-6 sm:px-6 text-sm text-slate-700 bg-white"
+                  >
+                    <p>
+                      @{{staticData.mainContent.greetingCustomer}}@{{customer.firstName}},
+                    </p>
+                    <p>
+                      @{{staticData.mainContent.firstParagraph}}<span
+                        class="font-bold"
+                      >
+                        @{{organization.name}} </span
+                      >.
+                    </p>
+                    <p>
+                      @{{staticData.mainContent.goodNews}}
+                      <span class="font-bold">@{{amount}}</span
+                      >@{{staticData.mainContent.yourWillReceive}}
+                    </p>
+                  </td>
+                </tr>
+              </td>
+            </tr>
+            <tr>
+              <td class="px-10 py-6 sm:px-6 text-sm text-slate-700 bg-white">
+                <h2
+                  class="mb-4 mt-8 text-2xl sm:leading-8 text-black font-semibold"
+                >
+                  @{{staticData.reimbursementDetails.header}}
+                </h2>
+                <table class="w-full">
+                  <x-tablerow
+                    label="@{{staticData.reimbursementDetails.amountLabel}}"
+                    value="@{{amount}}"
+                  />
+                  <x-tablerow
+                    label="@{{staticData.reimbursementDetails.dateLabel}}"
+                    value="@{{createdAt}}"
+                  />
+                </table>
+              </td>
+            </tr>
+
+            <x-footer />
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+</x-main>

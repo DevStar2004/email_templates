@@ -1,0 +1,149 @@
+---
+title: "Groupe Complété !"
+preheader: "Votre groupe Kohort est complet ! Découvrez les détails de chaque participant 🥳"
+---
+
+<!--
+  Template Variables:
+  ===================
+  1. {{paymentGroup.shareUrl}}:
+     Description: This variable holds the unique URL for the payment group which can be shared.
+     Type: URL String
+
+  2. {{paymentGroup.shareId}}:
+     Description: This variable holds the unique ID for the payment group which can be shared.
+     Type: String
+
+  3. {{totalSaved}}:
+     Description: This variable holds the total amount saved in the group.
+     Type: String
+     Example: "125,76€"
+
+  4. {{participants}}:
+     Description: This variable holds the list of participants in the group.
+     Type: Array of Objects
+     Example: 
+     [
+       {
+         "initials": "AB",
+         "name": "John Doe",
+         "date": "12/09/2023 - 15:02",
+         "imgSrc": "http://example.com/image.png",
+         "itemCount": "+3",
+         "originalPrice": "20€",
+         "discountedPrice": "80€"
+       },
+       ...
+     ]
+
+  Component Variables:
+  ====================
+  1. <x-participant-row>:
+     - {{participant.initials}}: The initials of the participant.
+     - {{participant.name}}: The name of the participant.
+     - {{participant.date}}: The date and time when the participant joined.
+     - {{participant.imgSrc}}: The URL of the image representing the item.
+     - {{participant.itemCount}}: The number of items.
+     - {{participant.originalPrice}}: The original price of the item.
+     - {{participant.discountedPrice}}: The discounted price of the item.
+
+  2. <x-total-discount>:
+     - {{totalSaved}}: The total amount saved.
+-->
+
+<x-main>
+  <div class="font-poppins">
+    <table align="center" class="w-[600px] max-w-full mx-auto">
+      <tr>
+        <td class="my-6 sm:my-4 text-center">
+          <x-weblink />
+        </td>
+      </tr>
+
+      <tr>
+        <x-header>
+          <fill:pretitle>{{staticData.header.groupCompleted}}</fill:pretitle>
+          <fill:title>{{staticData.header.kohortCompleted}}</fill:title>
+          <fill:description
+            >{{staticData.header.discoverDetails}}</fill:description
+          >
+        </x-header>
+      </tr>
+      <tr>
+        <td class="px-10 sm:p-6 bg-white text-brand-100">
+          <p class="text-xs my-0 pt-3">
+            {{staticData.summarySection.everyoneBenefits}}
+          </p>
+          <h1 class="text-3xl text-brand-700 font-normal my-0 leading-9">
+            {{staticData.summarySection.togetherYouSaved}}
+            <span class="font-bold">
+              {{staticData.summarySection.totalSaved}} {{totalSaved}}</span
+            >
+            {{staticData.summarySection.thatsTheKohortEffect}}
+          </h1>
+        </td>
+      </tr>
+      <tr>
+        <td class="px-10 py-6 sm:px-6 text-sm bg-white">
+          <table class="w-full text-left border-collapse items-center">
+            <tbody>
+              <x-participant-row
+                initials="{{participant.initials}}"
+                name="{{participant.name}}"
+                date="{{participant.date}}"
+                imgSrc="{{participant.imgSrc}}"
+                itemCount="{{participant.itemCount}}"
+                originalPrice="{{participant.originalPrice}}"
+                discountedPrice="{{participant.discountedPrice}}"
+              />
+
+              <x-participant-row
+                initials="{{participant.initials}}"
+                name="{{participant.name}}"
+                date="{{participant.date}}"
+                imgSrc="{{participant.imgSrc}}"
+                itemCount="{{participant.itemCount}}"
+                originalPrice="{{participant.originalPrice}}"
+                discountedPrice="{{participant.discountedPrice}}"
+              />
+
+              <tr>
+                <td colspan="4" style="padding: 0">
+                  <div style="height: 0.3px; background-color: #979797"></div>
+                </td>
+              </tr>
+              <!-- More Rows as Needed... -->
+            </tbody>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <x-total-discount
+          totalSavedLabel="{{staticData.totalSaved.label}}"
+          totalSaved="{{totalSaved}}"
+        />
+      </tr>
+
+      <tr>
+        <td class="px-10 sm:px-6 text-sm text-slate-700 bg-white">
+          <x-button
+            href="{{paymentGroup.shareUrl}}"
+            text="{{staticData.callToAction.accessGroupTracking}}"
+          />
+        </td>
+      </tr>
+      <tr>
+        <x-promo
+          title="{{staticData.promoSection.enjoyDiscounts}}"
+          imageSrc="https://emails.kohortpay.com/images/brands.webp"
+        />
+      </tr>
+
+      <tr>
+        <td>
+          <x-footer />
+        </td>
+      </tr>
+    </table>
+  </div>
+</x-main>

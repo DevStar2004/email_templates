@@ -1,0 +1,22 @@
+<script props>
+  module.exports = {
+    title:
+      props.title ||
+      "Profite bientôt de réductions sur les nombreuses autres marques qui utilisent KohortPay",
+    imageSrc:
+      props.imageSrc || "https://emails.kohortpay.com/images/brands.png",
+    class:
+      props.class ||
+      "px-10 py-6 sm:px-6 text-sm bg-red bg-brand-700 bg-gradient-r-brand-600 text-white text-center",
+    h2Class: props.h2Class || "text-xl sm:leading-8 font-semibold",
+    pClass: props.pClass || "my-6",
+    imgWidth: props.imgWidth || "525px",
+  };
+</script>
+
+<td class="{{ class }}">
+  <h2 class="{{ h2Class }}">{{ title }}</h2>
+  <p class="{{ pClass }}">
+    <img src="{{ imageSrc }}" width="{{ imgWidth }}" />
+  </p>
+</td>

@@ -1,0 +1,156 @@
+---
+title: "Ton paiement est autorisé"
+preheader: "Ton paiement chez Kohort Goodies a bien été autorisé et ta commande est en cours de traitement."
+---
+
+<!--
+  Template Variables:
+  ===================
+  1. @{{customer.firstName}}:
+     Description: This variable holds the first name of the customer.
+     Type: String
+     Example: "John"
+
+  2. @{{paymentIntent.amount}}:
+     Description: This variable holds the amount of the payment.
+     Type: String
+     Example: "54€"
+
+  3. @{{paymentIntent.id}}:
+     Description: This variable holds the unique ID of the payment.
+     Type: String
+     Example: "pi_3NjznOLELo0TF9yJ0r9WkIGZ"
+
+  4. @{{paymentIntent.updatedAt}}:
+     Description: This variable holds the date and time when the payment was last updated.
+     Type: String
+     Example: "2023-09-07T09:12:33.154Z"
+
+-->
+
+<x-main>
+  <div class="font-poppins">
+    <table align="center" class="w-[600px] max-w-full mx-auto">
+      <tr>
+        <td class="my-6 sm:my-4 text-center">
+          <x-weblink />
+        </td>
+      </tr>
+
+      <tr>
+        <x-header>
+          <fill:pretitle>@{{staticData.header.paymentAuthorized}}</fill:pretitle>
+          <fill:title>@{{staticData.header.thankYouForChoosing}}</fill:title>
+          <fill:description>
+            @{{staticData.header.paymentHasBeenAuthorized}}
+            <span class="font-bold">@{{organization.name}}</span
+            >@{{staticData.header.organizationNameBoldEnd}}
+          </fill:description>
+        </x-header>
+      </tr>
+      <tr>
+        <td class="px-10 py-6 sm:px-6 text-sm text-slate-700 bg-white">
+          <p>
+            @{{staticData.mainContent.greetingCustomer}}@{{customer.firstName}},<br /><br />
+            @{{staticData.mainContent.youChoseKohortPay}}
+            <span class="font-semibold">@{{organization.name}}</span>.
+            @{{staticData.mainContent.groupPaymentFinalized}}
+          </p>
+
+          <p class="font-poppins">
+            @{{staticData.mainContent.goodNews}}
+            <strong>@{{creator}}</strong>
+            @{{staticData.mainContent.youHaveAlreadySaved}}
+            <strong>@{{currentDiscountAmount}} (-@{{currentDiscount}})</strong>
+            @{{staticData.mainContent.onTheTotalOrderAmount}}
+          </p>
+
+          <h2 class="mb-4 mt-8 text-2xl sm:leading-8 text-black font-semibold">
+            @{{staticData.mainContent.paymentDetailsHeader}}
+          </h2>
+
+          <table class="w-full text-slate-700">
+            <x-tablerow
+              label="@{{staticData.mainContent.paymentAmountLabel}}"
+              value="@{{paymentIntent.amount}}"
+            />
+            <x-tablerow
+              label="@{{staticData.mainContent.paymentNumberLabel}}"
+              value="@{{paymentIntent.id}}"
+            />
+            <x-tablerow
+              label="@{{staticData.mainContent.paymentDateLabel}}"
+              value="@{{paymentIntent.updatedAt}}"
+            />
+            <x-disclaimer-row
+              disclaimerText="@{{staticData.disclaimerSection.prefix}} @{{currentDiscountAmount}}@{{staticData.disclaimerSection.suffix}}"
+            ></x-disclaimer-row>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="px-10 sm:px-6 text-sm text-slate-700 bg-white">
+          <div class="flex flex-row justify-between">
+            <h2
+              class="mb-4 mt-8 text-2xl sm:leading-8 text-black font-semibold"
+            >
+              @{{staticData.paymentSummary.header}}
+            </h2>
+            <img
+              class="leading-8 mb-4 mt-8"
+              src="@{{organization.imageUrl}}"
+              height="30"
+            />
+          </div>
+
+          <!-- Item List Table -->
+          <table class="w-full text-left border-t pb-2 items-center">
+            <tbody>
+              <!-- Single Item Row -->
+              <x-item-row
+                imgSrc="https://my.kohortpay.dev/_next/image?url=https%3A%2F%2Fshop.kohortpay.com%2Fcdn%2Fshop%2Ffiles%2FCasquette_KONGO.png%3Fv%3D1692971762%26width%3D300&w=64&q=75"
+                itemName="Casquette KONGO"
+                itemPrice="24€"
+              />
+              <!-- Add more rows as needed for additional items -->
+              <x-item-row
+                imgSrc="https://my.kohortpay.dev/_next/image?url=https%3A%2F%2Fshop.kohortpay.com%2Fcdn%2Fshop%2Ffiles%2FChaussettes_KIKI.png%3Fv%3D1692974993%26width%3D300&w=64&q=75"
+                itemName="Chaussettes KIKI"
+                itemPrice="30€"
+              />
+              <x-item-row
+                imgSrc="https://my.kohortpay.dev/_next/image?url=https%3A%2F%2Fshop.kohortpay.com%2Fcdn%2Fshop%2Ffiles%2FChaussettes_KIKI.png%3Fv%3D1692974993%26width%3D300&w=64&q=75"
+                itemName="Chaussettes KIKI"
+                itemPrice="30€"
+              />
+            </tbody>
+          </table>
+
+          <table
+            class="w-full border-solid border-0 border-t border-b border-gray-200"
+          >
+            <x-row label="Livraison Fedex" value="OFFERT" />
+            <x-row label="Remise '2024'" value="-20$" />
+            <x-row label="Remise '2024'" value="-20$" />
+            <!-- Spacing row -->
+            <x-highlighted-row
+              label="@{{staticData.paymentSummary.exclusiveDiscountLabel}}"
+              amount="@{{currentDiscountAmount}}"
+            ></x-highlighted-row>
+          </table>
+
+          <table class="w-full">
+            <x-total-row
+              labelTitle="@{{staticData.paymentSummary.amountLabel}}"
+              totalAmount="@{{paymentIntent.amount}}"
+            />
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <x-footer />
+      </tr>
+    </table>
+  </div>
+</x-main>
