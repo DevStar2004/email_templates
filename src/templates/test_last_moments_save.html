@@ -1,0 +1,41 @@
+---
+val_1: "[Time/2]"
+val_2: "8% cashback"
+---
+
+<x-main>
+  <div class="font-poppins">
+    <table class="w-[600px] max-w-full mx-auto">
+      <tr>
+        <td class="my-6 sm:my-4 text-center">
+          <x-weblink />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="bg-white text-left p-16 border-0 border-t-8 border-[#c72443] border-solid">
+            <div class="text-5xl font-bold leading-15">
+                <div>last moments</div>
+                <div>to save 🥳</div>
+            </div>
+    
+            <div class="text-2xl font-normal mt-8">
+                Hello, Martin, you still have <span class="font-bold">{{ page.val_1 }}</span> to sponsor at least one friend and
+                unlock <span class="font-bold">{{ page.val_2 }} </span>on your
+                respective orders
+            </div>
+    
+            <div>
+                <x-test-button text="See my kohort" />
+            </div>
+        </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <x-test-footer />
+        </td>
+      </tr>
+    </table>
+  </div>
+</x-main>
