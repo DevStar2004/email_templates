@@ -1,11 +1,11 @@
 ---
-val_1: "[Time/2]"
-val_2: "8% cashback"
+time_left: "[Time/2]"
+percent_cashback: "8% cashback"
 ---
 
 <x-main>
   <div class="font-poppins">
-    <table class="w-[600px] max-w-full mx-auto">
+    <table class="w-[600px] max-w-full mx-auto bg-white">
       <tr>
         <td class="my-6 sm:my-4 text-center">
           <x-weblink />
@@ -20,9 +20,8 @@ val_2: "8% cashback"
             </div>
     
             <div class="text-2xl font-normal mt-8">
-                Hello, Martin, you still have <span class="font-bold">{{ page.val_1 }}</span> to sponsor at least one friend and
-                unlock <span class="font-bold">{{ page.val_2 }} </span>on your
-                respective orders
+                Hello, Martin, you still have <span class="font-bold">{{ page.time_left }}</span> to sponsor at least one friend and
+                unlock <span class="font-bold">{{ page.percent_cashback }} </span>on your respective orders
             </div>
     
             <div>
