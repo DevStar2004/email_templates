@@ -1,0 +1,87 @@
+---
+hours_left: "72 hours"
+money: "€16"
+amount: "230,00 €"
+date: "April 22, 2024 at 12:45 p.m."
+number: "pi_e78e7dcfb444cf"
+cash_unlocked: "4,00 €*"
+total: "230,00 €"
+---
+
+<x-main>
+  <div class="font-poppins">
+    <table class="w-[600px] max-w-full mx-auto">
+      <tr>
+        <td class="my-6 sm:my-4 text-center">
+          <x-weblink />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="bg-white text-left p-16 border-0 border-t-8 border-[#c72443] border-solid">
+            <div class="text-5xl font-bold leading-15">
+              <div>You created</div>
+              <div>a kohort 🔥</div>
+            </div>
+
+            <div class="text-2xl font-normal mt-8">
+              Hello Martin, you have <span class="font-bold">{{ page.hours_left }}</span> left to earn up to
+              <span class="font-bold"> {{ page.money }} in cashback</span>
+            </div>
+
+            <div class="text-2xl font-normal mt-8">
+              Visit your kohort below to invite your friends to make a sponsored purchase.
+            </div>
+
+            <div>
+              <x-test-button text="See my kohort" />
+            </div>
+            <div class="mt-8">
+              <x-spacer height="1px" color="rgba(191, 191, 191, 0.7)" />
+            </div>
+            <div class="mt-10">
+              <span class="text-2xl font-bold">Payment confirmation</span>
+              <div class="mt-8">
+                <table class="w-full">
+                  <tr>
+                    <td class="py-1.5"><span>Amount</span></td>
+                    <td class="text-right py-1.5"><span class="font-semibold">{{ page.amount }}</span></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2"><x-spacer height="1.5px" color="rgba(191, 191, 191, 0.7)" /></td>
+                  </tr>
+                  <tr>
+                    <td class="py-1.5"><span>Date</span></td>
+                    <td class="text-right py-1.5"><span class="font-semibold">{{ page.date }}</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2"><x-spacer height="1.5px" color="rgba(191, 191, 191, 0.7)" /></td>
+                  </tr>
+                  <tr>
+                    <td class="py-1.5"><span>Number</span></td>
+                    <td class="text-right py-1.5"><span class="font-semibold">{{ page.number }} </span></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2"><x-spacer height="1.5px" color="rgba(0, 0, 0, 0.9)" /></td>
+                  </tr>
+                  <tr class="p-2.5">
+                    <td class="py-1.5"><span>Total</span></td>
+                    <td class="text-right py-1.5"><span class="font-semibold">{{ page.total }}</span></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <x-test-footer />
+        </td>
+      </tr>
+    </table>
+  </div>
+</x-main>

@@ -1,0 +1,14 @@
+<script props>
+  module.exports = {
+    href: props.href || "@{{paymentGroup.shareUrl}}",
+    text: props.text || "See my kohart",
+    target: props.target || "_blank",
+    class: props.class || 
+    "text-2xl text-center text-white font-normal py-3 bg-[#ed3a5f] bg-clip-padding border-solid border-pink-200/30 border-8 rounded-2xl mt-8 cursor-pointer"
+
+  };
+</script>
+
+<div class="{{ class }}">
+  <span class="">{{text}}</span>
+</div>

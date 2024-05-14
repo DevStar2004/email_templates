@@ -1,0 +1,50 @@
+---
+earn_cashback: "12%"
+goal_cashback: "15% cashback"
+---
+
+<x-main>
+    <div class="font-poppins">
+        <table class="w-[600px] max-w-full mx-auto bg-white">
+            <tr>
+                <td class="my-6 sm:my-4 text-center">
+                    <x-weblink />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                  <div class="bg-white text-left p-16 border-0 border-t-8 border-[#c72443] border-solid">
+                    <div class="text-5xl font-bold leading-15">
+                        <div>A new level has</div>
+                        <div>just been</div>
+                        <div>unlocked 🎯</div>
+                    </div>
+            
+                    <div class="text-2xl font-normal mt-8">
+                        Hello, Martin, great news, thanks to the participation of Lnes B. you have just reached a new level of cashback
+                        for Martin S.'s Kohort at Nike.com
+                    </div>
+            
+                    <div class="text-2xl font-normal mt-10">
+                        This means that now you all earn <span class="font-bold">{{ page.earn_cashback }}</span> your respective purchase amount in cashback.
+                    </div>
+            
+                    <div class="text-2xl font-normal mt-10">
+                        <div>Refer 5 more friends to reach</div>
+                        <div class="font-bold">{{ page.goal_cashback }}</div>
+                    </div>
+            
+                    <div>
+                        <x-test-button text="See the kohort"/>
+                    </div>
+                </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <x-test-footer />
+                </td>
+            </tr>
+        </table>
+    </div>
+</x-main>
